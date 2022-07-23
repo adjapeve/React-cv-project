@@ -12,10 +12,29 @@ class App extends Component {
       gIname: "",
       gIemail: "",
       gIphone: "",
-      gIrender: { name: "", email: "", phone: "" },
+      eEschoolName: "",
+      eEtitle: "",
+      eEdateFinish: "",
+      pEcompany: "",
+      pEposition: "",
+      pEtasks: "",
+      pEdateStart: "",
+      pEdateFinish: "",
+      gIdata: { name: "", email: "", phone: "" },
+      pEdata: {
+        company: "",
+        position: "",
+        tasks: "",
+        dateStart: "",
+        dateFinish: "",
+      },
+      // eEdata: { schoolName: "", title: "", dateFinish: "" },
+      eEdata: [],
     };
     this.handleDataChange = this.handleDataChange.bind(this);
     this.handleGeneralInfoSubmit = this.handleGeneralInfoSubmit.bind(this);
+    this.handleEducationExpSubmit = this.handleEducationExpSubmit.bind(this);
+    this.handlePracticalExpSubmit = this.handlePracticalExpSubmit.bind(this);
   }
   handleDataChange(event) {
     const target = event.target;
@@ -28,10 +47,40 @@ class App extends Component {
   handleGeneralInfoSubmit(event) {
     event.preventDefault();
     this.setState({
-      gIrender: {
+      gIdata: {
         name: this.state.gIname,
         email: this.state.gIemail,
         phone: this.state.gIphone,
+      },
+    });
+  }
+  handleEducationExpSubmit(event) {
+    event.preventDefault();
+    let filledExp = {
+      schoolName: this.state.eEschoolName,
+      title: this.state.eEtitle,
+      dateFinish: this.state.eEdateFinish,
+    };
+    // this.setState({
+    //   eEdata: {
+    //     schoolName: this.state.eEschoolName,
+    //     title: this.state.eEtitle,
+    //     dateFinish: this.state.eEdateFinish,
+    //   },
+    // });
+    this.setState({
+      eEdata: this.state.eEdata.concat(filledExp),
+    });
+  }
+  handlePracticalExpSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      pEdata: {
+        company: this.state.pEcompany,
+        position: this.state.pEposition,
+        tasks: this.state.pEtasks,
+        dateStart: this.state.pEdateStart,
+        dateFinish: this.state.pEdateFinish,
       },
     });
   }
@@ -43,9 +92,14 @@ class App extends Component {
           entryData={this.state}
           onDataChange={this.handleDataChange}
           onGeneralInfoSubmit={this.handleGeneralInfoSubmit}
+          onEducationExpSubmit={this.handleEducationExpSubmit}
+          onPracticalExpSubmit={this.handlePracticalExpSubmit}
         />
-        <CvOutput renderData={this.state.gIrender} />
-        <p></p>
+        <CvOutput
+          gIdata={this.state.gIdata}
+          eEdata={this.state.eEdata}
+          pEdata={this.state.pEdata}
+        />
       </div>
     );
   }

@@ -7,18 +7,15 @@ class OutGeneralInfo extends Component {
     return (
       <div>
         <h2>General Information</h2>
-        <label>
-          Name
-          <p>{this.props.renderData.name}</p>
-        </label>
-        <label>
-          Email
-          <p>{this.props.renderData.email}</p>
-        </label>
-        <label>
-          Phone
-          <p>{this.props.renderData.phone}</p>
-        </label>
+
+        <h4>Name</h4>
+        <p>{this.props.gIdata.name}</p>
+
+        <h4>Email</h4>
+        <p>{this.props.gIdata.email}</p>
+
+        <h4>Phone</h4>
+        <p>{this.props.gIdata.phone}</p>
       </div>
     );
   }

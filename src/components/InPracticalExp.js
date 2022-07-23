@@ -3,18 +3,30 @@
 import React, { Component } from "react";
 
 class InPracticalExp extends Component {
+  constructor(props) {
+    super(props);
+    this.handleDataChange = this.handleDataChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleDataChange(event) {
+    this.props.onDataChange(event);
+  }
+  handleSubmit(event) {
+    this.props.onPracticalExpSubmit(event);
+  }
   render() {
     return (
       <div>
         <h2>Practical Experience</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Company Name
             <input
               type="text"
               id="companyName"
-              name="companyName"
-              value="BOCC"
+              name="pEcompany"
+              value={this.props.pEcompany}
+              onChange={this.handleDataChange}
             />
           </label>
           <label>
@@ -22,25 +34,38 @@ class InPracticalExp extends Component {
             <input
               type="text"
               id="position"
-              name="position"
-              value="Integration Analyst"
+              name="pEposition"
+              value={this.props.pEposition}
+              onChange={this.handleDataChange}
             />
           </label>
           <label>
             Main Tasks
-            <textarea value="a b ad c" id="tasks" name="tasks" />
+            <textarea
+              id="tasks"
+              name="pEtasks"
+              value={this.props.pEtasks}
+              onChange={this.handleDataChange}
+            />
           </label>
           <label>
             Date Started
-            <input type="date" id="jobStarted" name="jobStarted" value="2014" />
+            <input
+              type="date"
+              id="jobStarted"
+              name="pEdateStart"
+              value={this.props.pEdateStart}
+              onChange={this.handleDataChange}
+            />
           </label>
           <label>
             Date Finished
             <input
               type="date"
               id="jobFinished"
-              name="jobFinished"
-              value="2018"
+              name="pEdateFinish"
+              value={this.props.pEdateFinish}
+              onChange={this.handleDataChange}
             />
           </label>
           <button>Submit</button>

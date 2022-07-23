@@ -25,7 +25,7 @@ class InGeneralInfo extends Component {
               type="text"
               id="name"
               name="gIname"
-              value={this.props.name}
+              value={this.props.gIname}
               onChange={this.handleDataChange}
             />
           </label>
@@ -35,7 +35,7 @@ class InGeneralInfo extends Component {
               type="email"
               id="email"
               name="gIemail"
-              value={this.props.email}
+              value={this.props.gIemail}
               onChange={this.handleDataChange}
             />
           </label>
@@ -45,7 +45,7 @@ class InGeneralInfo extends Component {
               type="phone"
               id="phone"
               name="gIphone"
-              value={this.props.phone}
+              value={this.props.gIphone}
               onChange={this.handleDataChange}
             />
           </label>

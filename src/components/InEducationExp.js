@@ -3,22 +3,40 @@
 import React, { Component } from "react";
 
 class InEducationExp extends Component {
+  constructor(props) {
+    super(props);
+    this.handleDataChange = this.handleDataChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleDataChange(event) {
+    this.props.onDataChange(event);
+  }
+  handleSubmit(event) {
+    this.props.onEducationExpSubmit(event);
+  }
   render() {
     return (
       <div>
         <h2>Education Experience</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>
             School Name
-            <input type="text" id="schoolName" name="schoolName" value="UDEC" />
+            <input
+              type="text"
+              id="schoolName"
+              name="eEschoolName"
+              value={this.props.eEschoolName}
+              onChange={this.handleDataChange}
+            />
           </label>
           <label>
             Title
             <input
               type="text"
               id="title"
-              name="title"
-              value="Software Engineer"
+              name="eEtitle"
+              value={this.props.eEtitle}
+              onChange={this.handleDataChange}
             />
           </label>
           <label>
@@ -26,8 +44,9 @@ class InEducationExp extends Component {
             <input
               type="date"
               id="schoolFinishDate"
-              name="schoolFinishDate"
-              value="2013"
+              name="eEdateFinish"
+              value={this.props.eEdateFinish}
+              onChange={this.handleDataChange}
             />
           </label>
           <button>Submit</button>

@@ -1,7 +1,7 @@
 // App.js
 
 import React, { Component } from "react";
-// import uniqid from "uniqid";
+import uniqid from "uniqid";
 import CvInput from "./components/CvInput";
 import CvOutput from "./components/CvOutput";
 
@@ -12,6 +12,7 @@ class App extends Component {
       gIname: "",
       gIemail: "",
       gIphone: "",
+      eEid: "",
       eEschoolName: "",
       eEtitle: "",
       eEdateFinish: "",
@@ -21,20 +22,14 @@ class App extends Component {
       pEdateStart: "",
       pEdateFinish: "",
       gIdata: { name: "", email: "", phone: "" },
-      pEdata: {
-        company: "",
-        position: "",
-        tasks: "",
-        dateStart: "",
-        dateFinish: "",
-      },
-      // eEdata: { schoolName: "", title: "", dateFinish: "" },
       eEdata: [],
+      pEdata: [],
     };
     this.handleDataChange = this.handleDataChange.bind(this);
     this.handleGeneralInfoSubmit = this.handleGeneralInfoSubmit.bind(this);
     this.handleEducationExpSubmit = this.handleEducationExpSubmit.bind(this);
     this.handlePracticalExpSubmit = this.handlePracticalExpSubmit.bind(this);
+    this.handleEditExperience = this.handleEditExperience.bind(this);
   }
   handleDataChange(event) {
     const target = event.target;
@@ -57,31 +52,38 @@ class App extends Component {
   handleEducationExpSubmit(event) {
     event.preventDefault();
     let filledExp = {
+      id: uniqid(),
       schoolName: this.state.eEschoolName,
       title: this.state.eEtitle,
       dateFinish: this.state.eEdateFinish,
     };
-    // this.setState({
-    //   eEdata: {
-    //     schoolName: this.state.eEschoolName,
-    //     title: this.state.eEtitle,
-    //     dateFinish: this.state.eEdateFinish,
-    //   },
-    // });
-    this.setState({
-      eEdata: this.state.eEdata.concat(filledExp),
-    });
+    this.setState((state) => ({
+      eEdata: state.eEdata.concat(filledExp),
+    }));
   }
   handlePracticalExpSubmit(event) {
     event.preventDefault();
+    let filledExp = {
+      id: uniqid(),
+      company: this.state.pEcompany,
+      position: this.state.pEposition,
+      tasks: this.state.pEtasks,
+      dateStart: this.state.pEdateStart,
+      dateFinish: this.state.pEdateFinish,
+    };
+    this.setState((state) => ({
+      pEdata: state.pEdata.concat(filledExp),
+    }));
+  }
+  handleEditExperience(id, event) {
+    event.preventDefault();
+    const exp = this.state.eEdata.find((exp) => exp.id === id);
+    console.log(exp);
     this.setState({
-      pEdata: {
-        company: this.state.pEcompany,
-        position: this.state.pEposition,
-        tasks: this.state.pEtasks,
-        dateStart: this.state.pEdateStart,
-        dateFinish: this.state.pEdateFinish,
-      },
+      eEid: id,
+      eEschoolName: exp.schoolName,
+      eEtitle: exp.title,
+      eEdateFinish: exp.dateFinish,
     });
   }
 
@@ -99,6 +101,7 @@ class App extends Component {
           gIdata={this.state.gIdata}
           eEdata={this.state.eEdata}
           pEdata={this.state.pEdata}
+          onEditExperience={this.handleEditExperience}
         />
       </div>
     );

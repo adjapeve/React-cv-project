@@ -27,6 +27,7 @@ class InEducationExp extends Component {
               name="eEschoolName"
               value={this.props.eEschoolName}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -37,6 +38,7 @@ class InEducationExp extends Component {
               name="eEtitle"
               value={this.props.eEtitle}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -47,6 +49,7 @@ class InEducationExp extends Component {
               name="eEdateFinish"
               value={this.props.eEdateFinish}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <button>Submit</button>

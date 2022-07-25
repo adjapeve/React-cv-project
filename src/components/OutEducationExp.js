@@ -13,6 +13,7 @@ class OutEducationExp extends Component {
           key={experience.id}
           component="education"
           onEditExperience={this.props.onEditExperience}
+          onDeleteExperience={this.props.onDeleteExperience}
         />
       );
     });

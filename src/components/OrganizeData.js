@@ -2,9 +2,9 @@ import React, { Component } from "react";
 class OrganizeData extends Component {
   handleEditExperience(id, event) {
     this.props.onEditExperience(id, event);
-    // event.preventDefault();
-    // const a = id;
-    // console.log(a);
+  }
+  handleDeleteExperience(id, event) {
+    this.props.onDeleteExperience(id, event);
   }
 
   render() {
@@ -12,7 +12,7 @@ class OrganizeData extends Component {
     const result =
       this.props.component === "education" ? (
         <form
-          onSubmit={(event) => this.handleEditExperience(experience.id, event)}
+        // onSubmit={(event) => this.handleEditExperience(experience.id, event)}
         >
           <h4>School Name</h4>
           <p>{experience.schoolName}</p>
@@ -20,7 +20,18 @@ class OrganizeData extends Component {
           <p>{experience.title}</p>
           <h4>Date Finished</h4>
           <p>{experience.dateFinish}</p>
-          <button>Edit</button>
+          <button
+            onClick={(event) => this.handleEditExperience(experience.id, event)}
+          >
+            Edit
+          </button>
+          <button
+            onClick={(event) =>
+              this.handleDeleteExperience(experience.id, event)
+            }
+          >
+            Delete
+          </button>
         </form>
       ) : (
         <form onSubmit={this.handleEditExperience}>

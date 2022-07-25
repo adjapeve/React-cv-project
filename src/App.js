@@ -30,6 +30,7 @@ class App extends Component {
     this.handleEducationExpSubmit = this.handleEducationExpSubmit.bind(this);
     this.handlePracticalExpSubmit = this.handlePracticalExpSubmit.bind(this);
     this.handleEditExperience = this.handleEditExperience.bind(this);
+    this.handleDeleteExperience = this.handleDeleteExperience.bind(this);
   }
   handleDataChange(event) {
     const target = event.target;
@@ -108,6 +109,12 @@ class App extends Component {
       eEdateFinish: exp.dateFinish,
     });
   }
+  handleDeleteExperience(id, event) {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      eEdata: prevState.eEdata.filter((experience) => experience.id !== id),
+    }));
+  }
 
   render() {
     return (
@@ -124,6 +131,7 @@ class App extends Component {
           eEdata={this.state.eEdata}
           pEdata={this.state.pEdata}
           onEditExperience={this.handleEditExperience}
+          onDeleteExperience={this.handleDeleteExperience}
         />
       </div>
     );

@@ -52,15 +52,38 @@ class App extends Component {
   handleEducationExpSubmit(event) {
     event.preventDefault();
     let filledExp = {
-      id: uniqid(),
       schoolName: this.state.eEschoolName,
       title: this.state.eEtitle,
       dateFinish: this.state.eEdateFinish,
     };
-    this.setState((state) => ({
-      eEdata: state.eEdata.concat(filledExp),
-    }));
+    //when editing an experience
+    if (this.state.eEid) {
+      filledExp.id = this.state.eEid;
+      const modifiedExperiences = this.state.eEdata.map((exp) => {
+        if (exp.id === this.state.eEid) {
+          exp = filledExp;
+        }
+        return exp;
+      });
+      this.setState(() => ({
+        eEdata: modifiedExperiences,
+      }));
+    }
+    //when adding a new experience
+    else {
+      filledExp.id = uniqid();
+      this.setState((state) => ({
+        eEdata: state.eEdata.concat(filledExp),
+      }));
+    }
+    this.setState({
+      eEid: "",
+      eEschoolName: "",
+      eEtitle: "",
+      eEdateFinish: "",
+    });
   }
+
   handlePracticalExpSubmit(event) {
     event.preventDefault();
     let filledExp = {
@@ -78,7 +101,6 @@ class App extends Component {
   handleEditExperience(id, event) {
     event.preventDefault();
     const exp = this.state.eEdata.find((exp) => exp.id === id);
-    console.log(exp);
     this.setState({
       eEid: id,
       eEschoolName: exp.schoolName,

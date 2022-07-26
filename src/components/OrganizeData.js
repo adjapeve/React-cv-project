@@ -11,9 +11,7 @@ class OrganizeData extends Component {
     const experience = this.props.experience;
     const result =
       this.props.component === "education" ? (
-        <form
-        // onSubmit={(event) => this.handleEditExperience(experience.id, event)}
-        >
+        <form>
           <h4>School Name</h4>
           <p>{experience.schoolName}</p>
           <h4>Title</h4>
@@ -21,20 +19,28 @@ class OrganizeData extends Component {
           <h4>Date Finished</h4>
           <p>{experience.dateFinish}</p>
           <button
-            onClick={(event) => this.handleEditExperience(experience.id, event)}
+            onClick={(event) =>
+              this.handleEditExperience(
+                [experience.id, this.props.component],
+                event
+              )
+            }
           >
             Edit
           </button>
           <button
             onClick={(event) =>
-              this.handleDeleteExperience(experience.id, event)
+              this.handleDeleteExperience(
+                [experience.id, this.props.component],
+                event
+              )
             }
           >
             Delete
           </button>
         </form>
       ) : (
-        <form onSubmit={this.handleEditExperience}>
+        <form>
           <h4>Company Name</h4>
           <p>{experience.company}</p>
           <h4>Position</h4>
@@ -45,7 +51,26 @@ class OrganizeData extends Component {
           <p>{experience.dateStart}</p>
           <h4>Date Finished</h4>
           <p>{experience.dateFinish}</p>
-          <button>Edit</button>
+          <button
+            onClick={(event) =>
+              this.handleEditExperience(
+                [experience.id, this.props.component],
+                event
+              )
+            }
+          >
+            Edit
+          </button>
+          <button
+            onClick={(event) =>
+              this.handleDeleteExperience(
+                [experience.id, this.props.component],
+                event
+              )
+            }
+          >
+            Delete
+          </button>
         </form>
       );
     return result;

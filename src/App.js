@@ -16,6 +16,7 @@ class App extends Component {
       eEschoolName: "",
       eEtitle: "",
       eEdateFinish: "",
+      pEid: "",
       pEcompany: "",
       pEposition: "",
       pEtasks: "",
@@ -76,8 +77,8 @@ class App extends Component {
     //when adding a new experience
     else {
       filledExp.id = uniqid();
-      this.setState((state) => ({
-        eEdata: state.eEdata.concat(filledExp),
+      this.setState((prevState) => ({
+        eEdata: prevState.eEdata.concat(filledExp),
       }));
     }
     this.setState({
@@ -91,32 +92,81 @@ class App extends Component {
   handlePracticalExpSubmit(event) {
     event.preventDefault();
     let filledExp = {
-      id: uniqid(),
       company: this.state.pEcompany,
       position: this.state.pEposition,
       tasks: this.state.pEtasks,
       dateStart: this.state.pEdateStart,
       dateFinish: this.state.pEdateFinish,
     };
-    this.setState((state) => ({
-      pEdata: state.pEdata.concat(filledExp),
-    }));
-  }
-  handleEditExperience(id, event) {
-    event.preventDefault();
-    const exp = this.state.eEdata.find((exp) => exp.id === id);
+    //when editing an experience
+    if (this.state.pEid) {
+      filledExp.id = this.state.pEid;
+      this.setState((prevState) => {
+        const pEdata = prevState.pEdata.map((experience) => {
+          if (experience.id === prevState.pEid) {
+            experience = filledExp;
+          }
+          return experience;
+        });
+        return {
+          pEdata,
+        };
+      });
+    }
+
+    //when adding a new experience
+    else {
+      filledExp.id = uniqid();
+      this.setState((prevState) => ({
+        pEdata: prevState.pEdata.concat(filledExp),
+      }));
+    }
     this.setState({
-      eEid: id,
-      eEschoolName: exp.schoolName,
-      eEtitle: exp.title,
-      eEdateFinish: exp.dateFinish,
+      pEid: "",
+      pEcompany: "",
+      pEposition: "",
+      pEtasks: "",
+      pEdateStart: "",
+      pEdateFinish: "",
     });
   }
-  handleDeleteExperience(id, event) {
+  handleEditExperience(args, event) {
     event.preventDefault();
-    this.setState((prevState) => ({
-      eEdata: prevState.eEdata.filter((experience) => experience.id !== id),
-    }));
+    const [id, component] = args;
+    let exp = "";
+    if (component === "education") {
+      exp = this.state.eEdata.find((exp) => exp.id === id);
+      this.setState({
+        eEid: exp.id,
+        eEschoolName: exp.schoolName,
+        eEtitle: exp.title,
+        eEdateFinish: exp.dateFinish,
+      });
+    }
+    //when editing practical experience (component="practical")
+    else {
+      exp = this.state.pEdata.find((exp) => exp.id === id);
+      this.setState({
+        pEid: exp.id,
+        pEcompany: exp.company,
+        pEposition: exp.position,
+        pEtasks: exp.tasks,
+        pEdateStart: exp.dateStart,
+        pEdateFinish: exp.dateFinish,
+      });
+    }
+  }
+  handleDeleteExperience(args, event) {
+    event.preventDefault();
+    const [id, component] = args;
+    component === "education"
+      ? this.setState((prevState) => ({
+          eEdata: prevState.eEdata.filter((experience) => experience.id !== id),
+        }))
+      : //when deleting practical experience (component="practical")
+        this.setState((prevState) => ({
+          pEdata: prevState.pEdata.filter((experience) => experience.id !== id),
+        }));
   }
 
   render() {

@@ -18,6 +18,7 @@ class CvOutput extends Component {
         <OutPracticalExp
           pEdata={this.props.pEdata}
           onEditExperience={this.props.onEditExperience}
+          onDeleteExperience={this.props.onDeleteExperience}
         />
       </div>
     );

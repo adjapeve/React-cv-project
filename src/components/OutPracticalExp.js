@@ -12,6 +12,8 @@ class OutPracticalExp extends Component {
           experience={experience}
           key={experience.id}
           component="practical"
+          onEditExperience={this.props.onEditExperience}
+          onDeleteExperience={this.props.onDeleteExperience}
         />
       );
     });

@@ -60,16 +60,19 @@ class App extends Component {
     //when editing an experience
     if (this.state.eEid) {
       filledExp.id = this.state.eEid;
-      const modifiedExperiences = this.state.eEdata.map((exp) => {
-        if (exp.id === this.state.eEid) {
-          exp = filledExp;
-        }
-        return exp;
+      this.setState((prevState) => {
+        const eEdata = prevState.eEdata.map((experience) => {
+          if (experience.id === prevState.eEid) {
+            experience = filledExp;
+          }
+          return experience;
+        });
+        return {
+          eEdata,
+        };
       });
-      this.setState(() => ({
-        eEdata: modifiedExperiences,
-      }));
     }
+
     //when adding a new experience
     else {
       filledExp.id = uniqid();

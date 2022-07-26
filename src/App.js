@@ -22,7 +22,7 @@ class App extends Component {
       pEtasks: "",
       pEdateStart: "",
       pEdateFinish: "",
-      gIdata: { name: "", email: "", phone: "" },
+      gIdata: "",
       eEdata: [],
       pEdata: [],
     };
@@ -43,12 +43,17 @@ class App extends Component {
   }
   handleGeneralInfoSubmit(event) {
     event.preventDefault();
-    this.setState({
+    this.setState((prevState) => ({
       gIdata: {
-        name: this.state.gIname,
-        email: this.state.gIemail,
-        phone: this.state.gIphone,
+        name: prevState.gIname,
+        email: prevState.gIemail,
+        phone: prevState.gIphone,
       },
+    }));
+    this.setState({
+      gIname: "",
+      gIemail: "",
+      gIphone: "",
     });
   }
   handleEducationExpSubmit(event) {
@@ -134,26 +139,34 @@ class App extends Component {
     event.preventDefault();
     const [id, component] = args;
     let exp = "";
-    if (component === "education") {
-      exp = this.state.eEdata.find((exp) => exp.id === id);
-      this.setState({
-        eEid: exp.id,
-        eEschoolName: exp.schoolName,
-        eEtitle: exp.title,
-        eEdateFinish: exp.dateFinish,
-      });
-    }
-    //when editing practical experience (component="practical")
-    else {
-      exp = this.state.pEdata.find((exp) => exp.id === id);
-      this.setState({
-        pEid: exp.id,
-        pEcompany: exp.company,
-        pEposition: exp.position,
-        pEtasks: exp.tasks,
-        pEdateStart: exp.dateStart,
-        pEdateFinish: exp.dateFinish,
-      });
+
+    switch (component) {
+      case "education":
+        exp = this.state.eEdata.find((exp) => exp.id === id);
+        this.setState({
+          eEid: exp.id,
+          eEschoolName: exp.schoolName,
+          eEtitle: exp.title,
+          eEdateFinish: exp.dateFinish,
+        });
+        break;
+      case "practical":
+        exp = this.state.pEdata.find((exp) => exp.id === id);
+        this.setState({
+          pEid: exp.id,
+          pEcompany: exp.company,
+          pEposition: exp.position,
+          pEtasks: exp.tasks,
+          pEdateStart: exp.dateStart,
+          pEdateFinish: exp.dateFinish,
+        });
+        break;
+      default:
+        this.setState((prevState) => ({
+          gIname: prevState.gIdata.name,
+          gIemail: prevState.gIdata.email,
+          gIphone: prevState.gIdata.phone,
+        }));
     }
   }
   handleDeleteExperience(args, event) {

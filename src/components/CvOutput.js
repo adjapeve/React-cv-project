@@ -9,7 +9,10 @@ class CvOutput extends Component {
     return (
       <div>
         <h1>CV Output</h1>
-        <OutGeneralInfo gIdata={this.props.gIdata} />
+        <OutGeneralInfo
+          gIdata={this.props.gIdata}
+          onEditExperience={this.props.onEditExperience}
+        />
         <OutEducationExp
           eEdata={this.props.eEdata}
           onEditExperience={this.props.onEditExperience}

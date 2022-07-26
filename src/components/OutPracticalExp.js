@@ -9,7 +9,7 @@ class OutPracticalExp extends Component {
     this.props.pEdata.forEach((experience) => {
       experienceElements.push(
         <OrganizeData
-          experience={experience}
+          dataForm={experience}
           key={experience.id}
           component="practical"
           onEditExperience={this.props.onEditExperience}

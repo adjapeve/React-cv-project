@@ -1,6 +1,7 @@
 // OutGeneralInfo.js
 
 import React, { Component } from "react";
+import OrganizeData from "./OrganizeData";
 
 class OutGeneralInfo extends Component {
   render() {
@@ -8,14 +9,11 @@ class OutGeneralInfo extends Component {
       <div>
         <h2>General Information</h2>
 
-        <h4>Name</h4>
-        <p>{this.props.gIdata.name}</p>
-
-        <h4>Email</h4>
-        <p>{this.props.gIdata.email}</p>
-
-        <h4>Phone</h4>
-        <p>{this.props.gIdata.phone}</p>
+        <OrganizeData
+          dataForm={this.props.gIdata}
+          onEditExperience={this.props.onEditExperience}
+          component="general"
+        />
       </div>
     );
   }

@@ -11,16 +11,16 @@ class CvOutput extends Component {
         <h1>CV Output</h1>
         <OutGeneralInfo
           gIdata={this.props.gIdata}
-          onEditExperience={this.props.onEditExperience}
+          onEditForm={this.props.onEditForm}
         />
         <OutEducationExp
           eEdata={this.props.eEdata}
-          onEditExperience={this.props.onEditExperience}
+          onEditForm={this.props.onEditForm}
           onDeleteExperience={this.props.onDeleteExperience}
         />
         <OutPracticalExp
           pEdata={this.props.pEdata}
-          onEditExperience={this.props.onEditExperience}
+          onEditForm={this.props.onEditForm}
           onDeleteExperience={this.props.onDeleteExperience}
         />
       </div>

@@ -30,7 +30,7 @@ class App extends Component {
     this.handleGeneralInfoSubmit = this.handleGeneralInfoSubmit.bind(this);
     this.handleEducationExpSubmit = this.handleEducationExpSubmit.bind(this);
     this.handlePracticalExpSubmit = this.handlePracticalExpSubmit.bind(this);
-    this.handleEditExperience = this.handleEditExperience.bind(this);
+    this.handleEditForm = this.handleEditForm.bind(this);
     this.handleDeleteExperience = this.handleDeleteExperience.bind(this);
   }
   handleDataChange(event) {
@@ -135,7 +135,7 @@ class App extends Component {
       pEdateFinish: "",
     });
   }
-  handleEditExperience(args, event) {
+  handleEditForm(args, event) {
     event.preventDefault();
     const [id, component] = args;
     let exp = "";
@@ -196,7 +196,7 @@ class App extends Component {
           gIdata={this.state.gIdata}
           eEdata={this.state.eEdata}
           pEdata={this.state.pEdata}
-          onEditExperience={this.handleEditExperience}
+          onEditForm={this.handleEditForm}
           onDeleteExperience={this.handleDeleteExperience}
         />
       </div>

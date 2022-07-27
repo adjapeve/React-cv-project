@@ -27,6 +27,7 @@ class InGeneralInfo extends Component {
               name="gIname"
               value={this.props.gIname}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -37,6 +38,7 @@ class InGeneralInfo extends Component {
               name="gIemail"
               value={this.props.gIemail}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -47,6 +49,7 @@ class InGeneralInfo extends Component {
               name="gIphone"
               value={this.props.gIphone}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <button>Submit</button>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 class OrganizeData extends Component {
-  handleEditExperience(id, event) {
-    this.props.onEditExperience(id, event);
+  handleEditForm(id, event) {
+    this.props.onEditForm(id, event);
   }
   handleDeleteExperience(id, event) {
     this.props.onDeleteExperience(id, event);
@@ -22,7 +22,7 @@ class OrganizeData extends Component {
             <p>{dataForm.dateFinish}</p>
             <button
               onClick={(event) =>
-                this.handleEditExperience(
+                this.handleEditForm(
                   [dataForm.id, this.props.component],
                   event
                 )
@@ -58,7 +58,7 @@ class OrganizeData extends Component {
             <p>{dataForm.dateFinish}</p>
             <button
               onClick={(event) =>
-                this.handleEditExperience(
+                this.handleEditForm(
                   [dataForm.id, this.props.component],
                   event
                 )
@@ -93,7 +93,7 @@ class OrganizeData extends Component {
               <p>{dataForm.phone}</p>
               <button
                 onClick={(event) =>
-                  this.handleEditExperience(
+                  this.handleEditForm(
                     ["none", this.props.component],
                     event
                   )

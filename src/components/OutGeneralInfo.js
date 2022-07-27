@@ -11,7 +11,7 @@ class OutGeneralInfo extends Component {
 
         <OrganizeData
           dataForm={this.props.gIdata}
-          onEditExperience={this.props.onEditExperience}
+          onEditForm={this.props.onEditForm}
           component="general"
         />
       </div>

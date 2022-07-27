@@ -27,6 +27,7 @@ class InPracticalExp extends Component {
               name="pEcompany"
               value={this.props.pEcompany}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -37,6 +38,7 @@ class InPracticalExp extends Component {
               name="pEposition"
               value={this.props.pEposition}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -56,6 +58,7 @@ class InPracticalExp extends Component {
               name="pEdateStart"
               value={this.props.pEdateStart}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <label>
@@ -66,6 +69,7 @@ class InPracticalExp extends Component {
               name="pEdateFinish"
               value={this.props.pEdateFinish}
               onChange={this.handleDataChange}
+              required
             />
           </label>
           <button>Submit</button>

@@ -12,7 +12,7 @@ class OutEducationExp extends Component {
           dataForm={experience}
           key={experience.id}
           component="education"
-          onEditExperience={this.props.onEditExperience}
+          onEditForm={this.props.onEditForm}
           onDeleteExperience={this.props.onDeleteExperience}
         />
       );

@@ -4,11 +4,12 @@ import React, { Component } from "react";
 import OutGeneralInfo from "./OutGeneralInfo";
 import OutEducationExp from "./OutEducationExp";
 import OutPracticalExp from "./OutPracticalExp";
+import '../style/CvOutput.css'
 class CvOutput extends Component {
   render() {
     return (
-      <div>
-        <h1>CV Output</h1>
+      <div className="CvOutput">
+        {/* <h1>CV Output</h1> */}
         <OutGeneralInfo
           gIdata={this.props.gIdata}
           onEditForm={this.props.onEditForm}

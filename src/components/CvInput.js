@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import InGeneralInfo from "./InGeneralInfo";
 import InEducationExp from "./InEducationExp";
 import InPracticalExp from "./InPracticalExp";
+import '../style/CvInput.css'
 
 class CvInput extends Component {
   render() {
@@ -21,8 +22,8 @@ class CvInput extends Component {
       pEdateFinish,
     } = this.props.entryData;
     return (
-      <div>
-        <h1>CV Input</h1>
+      <div className="CvInput">
+        {/* <h1>CV Input</h1> */}
         <InGeneralInfo
           gIname={gIname}
           gIemail={gIemail}

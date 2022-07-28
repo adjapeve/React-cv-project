@@ -1,0 +1,7 @@
+.CvInput{
+    flex: 1;
+    border:1px black solid;
+}
+input,textarea{
+    display:block;
+}

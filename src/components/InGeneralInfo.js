@@ -1,6 +1,7 @@
 // InGeneralInfo.js
 
 import React, { Component } from "react";
+import "../style/InGeneralInfo.css";
 
 class InGeneralInfo extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class InGeneralInfo extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="Input-section">
         <h2>General Information</h2>
         <form onSubmit={this.handleSubmit}>
           <label>

@@ -13,7 +13,7 @@ class OrganizeData extends Component {
     switch (this.props.component) {
       case "education":
         result = (
-          <form>
+          <div>
             <h4>School Name</h4>
             <p>{dataForm.schoolName}</p>
             <h4>Title</h4>
@@ -22,10 +22,7 @@ class OrganizeData extends Component {
             <p>{dataForm.dateFinish}</p>
             <button
               onClick={(event) =>
-                this.handleEditForm(
-                  [dataForm.id, this.props.component],
-                  event
-                )
+                this.handleEditForm([dataForm.id, this.props.component], event)
               }
             >
               Edit
@@ -40,12 +37,12 @@ class OrganizeData extends Component {
             >
               Delete
             </button>
-          </form>
+          </div>
         );
         break;
       case "practical":
         result = (
-          <form>
+          <div>
             <h4>Company Name</h4>
             <p>{dataForm.company}</p>
             <h4>Position</h4>
@@ -58,10 +55,7 @@ class OrganizeData extends Component {
             <p>{dataForm.dateFinish}</p>
             <button
               onClick={(event) =>
-                this.handleEditForm(
-                  [dataForm.id, this.props.component],
-                  event
-                )
+                this.handleEditForm([dataForm.id, this.props.component], event)
               }
             >
               Edit
@@ -76,13 +70,13 @@ class OrganizeData extends Component {
             >
               Delete
             </button>
-          </form>
+          </div>
         );
         break;
       case "general":
         if (dataForm.name) {
           result = (
-            <form>
+            <div>
               <h4>Name</h4>
               <p>{dataForm.name}</p>
 
@@ -93,15 +87,12 @@ class OrganizeData extends Component {
               <p>{dataForm.phone}</p>
               <button
                 onClick={(event) =>
-                  this.handleEditForm(
-                    ["none", this.props.component],
-                    event
-                  )
+                  this.handleEditForm(["none", this.props.component], event)
                 }
               >
                 Edit
               </button>
-            </form>
+            </div>
           );
         }
         break;

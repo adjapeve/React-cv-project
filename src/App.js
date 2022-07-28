@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import uniqid from "uniqid";
 import CvInput from "./components/CvInput";
 import CvOutput from "./components/CvOutput";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -184,7 +185,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Main-container">
         <CvInput
           entryData={this.state}
           onDataChange={this.handleDataChange}

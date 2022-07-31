@@ -23,7 +23,6 @@ class CvInput extends Component {
     } = this.props.entryData;
     return (
       <div className="CvInput">
-        {/* <h1>CV Input</h1> */}
         <InGeneralInfo
           gIname={gIname}
           gIemail={gIemail}
@@ -31,7 +30,6 @@ class CvInput extends Component {
           onDataChange={this.props.onDataChange}
           onGeneralInfoSubmit={this.props.onGeneralInfoSubmit}
         />
-        <br />
         <InEducationExp
           eEschoolName={eEschoolName}
           eEtitle={eEtitle}
@@ -39,7 +37,6 @@ class CvInput extends Component {
           onDataChange={this.props.onDataChange}
           onEducationExpSubmit={this.props.onEducationExpSubmit}
         />
-        <br />
         <InPracticalExp
           pEcompany={pEcompany}
           pEposition={pEposition}

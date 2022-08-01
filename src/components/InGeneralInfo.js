@@ -1,7 +1,7 @@
 // InGeneralInfo.js
 
 import React, { Component } from "react";
-import "../style/InGeneralInfo.css";
+import "../style/InputSections.css";
 
 class InGeneralInfo extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class InGeneralInfo extends Component {
   render() {
     return (
       <div className="Input-section">
-        <h2>General Information</h2>
+        <h2>Personal Information</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
             Name
@@ -53,7 +53,7 @@ class InGeneralInfo extends Component {
               required
             />
           </label>
-          <button>Submit</button>
+          <button className="CvInput-button">Submit</button>
         </form>
       </div>
     );

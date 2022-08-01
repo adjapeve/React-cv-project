@@ -1,6 +1,7 @@
 // InPracticalExp.js
 
 import React, { Component } from "react";
+import "../style/InputSections.css";
 
 class InPracticalExp extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class InPracticalExp extends Component {
               required
             />
           </label>
-          <button>Submit</button>
+          <button className="CvInput-button">Submit</button>
         </form>
       </div>
     );

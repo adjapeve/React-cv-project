@@ -1,8 +1,7 @@
 .CvInput{
     flex: 1;
-    border-right:1px black solid;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border:1px black solid;
+    border-radius: 5px;
     padding:20px;
     background-color: rgb(255, 255, 255);
 }

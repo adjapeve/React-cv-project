@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../style/OrganizeData.css";
 class OrganizeData extends Component {
   handleEditForm(id, event) {
     this.props.onEditForm(id, event);
@@ -77,15 +78,19 @@ class OrganizeData extends Component {
         if (dataForm.name) {
           result = (
             <div>
-              <h4>Name</h4>
-              <p>{dataForm.name}</p>
+              <p className="GeneralInfo-Name">{dataForm.name}</p>
 
-              <h4>Email</h4>
-              <p>{dataForm.email}</p>
+              <p className="GeneralInfo-Data">
+                <span className="GeneralInfo-DataLabel">Email </span>
+                {dataForm.email}
+              </p>
 
-              <h4>Phone</h4>
-              <p>{dataForm.phone}</p>
+              <p className="GeneralInfo-Data">
+                <span className="GeneralInfo-DataLabel">Phone </span>
+                {dataForm.phone}
+              </p>
               <button
+                className="GeneralInfo-EditButton"
                 onClick={(event) =>
                   this.handleEditForm(["none", this.props.component], event)
                 }

@@ -18,7 +18,7 @@ class InPracticalExp extends Component {
   render() {
     return (
       <div>
-        <h2>Practical Experience</h2>
+        <h2>Experience</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
             Company Name
@@ -54,7 +54,7 @@ class InPracticalExp extends Component {
           <label>
             Date Started
             <input
-              type="date"
+              type="month"
               id="jobStarted"
               name="pEdateStart"
               value={this.props.pEdateStart}
@@ -65,7 +65,7 @@ class InPracticalExp extends Component {
           <label>
             Date Finished
             <input
-              type="date"
+              type="month"
               id="jobFinished"
               name="pEdateFinish"
               value={this.props.pEdateFinish}

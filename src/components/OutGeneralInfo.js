@@ -2,13 +2,12 @@
 
 import React, { Component } from "react";
 import OrganizeData from "./OrganizeData";
+import "../style/OutGeneralInfo.css";
 
 class OutGeneralInfo extends Component {
   render() {
     return (
-      <div>
-        <h2>General Information</h2>
-
+      <div className="GeneralInfo-Container">
         <OrganizeData
           dataForm={this.props.gIdata}
           onEditForm={this.props.onEditForm}

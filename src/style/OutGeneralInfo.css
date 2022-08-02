@@ -1,0 +1,10 @@
+.GeneralInfo-Container{
+    height: 25vh;
+    background-color: rgb(80, 107, 131);
+    padding: 20px;
+    flex: 0 1 auto;
+}
+.GeneralInfo-Container div p{
+    margin-top:0;
+    margin-bottom:20px;
+}

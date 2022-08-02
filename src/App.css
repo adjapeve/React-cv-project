@@ -391,7 +391,7 @@ body{
 }
 .Main-container{
     display:flex;
-    margin: 5vh 5vw;
+    margin: 1vh 5vw;
     border-radius: 5px;
     gap: 10px;
 }

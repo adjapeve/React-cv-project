@@ -5,6 +5,9 @@
     align-items: flex-start;
     gap:5px;
 }
+.Input-section>h2:first-child{
+    margin-top: 0;
+}
 input,textarea{
     width:100%;
     border-radius: 5px;
@@ -26,7 +29,7 @@ form{
 textarea{
     height: 100px;
 }
-input[type="date"]{
+input[type="month"]{
     display: block;
     width: auto;
 }

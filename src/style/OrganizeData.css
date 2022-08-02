@@ -1,0 +1,23 @@
+
+.GeneralInfo-Name,.GeneralInfo-Data{
+    font-family: 'Roboto Slab', serif;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+}
+.GeneralInfo-DataLabel,.GeneralInfo-Data{
+    font-size: 1rem;
+}
+.GeneralInfo-DataLabel{
+    font-weight: bold;
+}
+.GeneralInfo-EditButton{
+    border: 0;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(80, 107, 131);
+    cursor: pointer;
+    margin-top: 5px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+}

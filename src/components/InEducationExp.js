@@ -18,7 +18,7 @@ class InEducationExp extends Component {
   render() {
     return (
       <div>
-        <h2>Education Experience</h2>
+        <h2>Education</h2>
         <form onSubmit={this.handleSubmit}>
           <label>
             School Name
@@ -45,7 +45,7 @@ class InEducationExp extends Component {
           <label>
             Date Finished
             <input
-              type="date"
+              type="month"
               id="schoolFinishDate"
               name="eEdateFinish"
               value={this.props.eEdateFinish}

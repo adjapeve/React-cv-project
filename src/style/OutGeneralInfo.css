@@ -2,6 +2,7 @@
     min-height: 20vh;
     background-color: rgb(80, 107, 131);
     padding: 20px;
+    flex: 0 0 auto;
     
 }
 .GeneralInfo-Container div p{

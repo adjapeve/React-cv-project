@@ -14,63 +14,71 @@ class OrganizeData extends Component {
     switch (this.props.component) {
       case "education":
         result = (
-          <div>
-            <h4>School Name</h4>
-            <p>{dataForm.schoolName}</p>
-            <h4>Title</h4>
-            <p>{dataForm.title}</p>
-            <h4>Date Finished</h4>
+          <div className="ExperienceInfo">
             <p>{dataForm.dateFinish}</p>
-            <button
-              onClick={(event) =>
-                this.handleEditForm([dataForm.id, this.props.component], event)
-              }
-            >
-              Edit
-            </button>
-            <button
-              onClick={(event) =>
-                this.handleDeleteExperience(
-                  [dataForm.id, this.props.component],
-                  event
-                )
-              }
-            >
-              Delete
-            </button>
+            <div>
+              <p className="Experience-bold">{dataForm.title}</p>
+              <p className="Experience-italic">{dataForm.schoolName}</p>
+              <div className="EditUpdateButtons">
+                <button
+                  onClick={(event) =>
+                    this.handleEditForm(
+                      [dataForm.id, this.props.component],
+                      event
+                    )
+                  }
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={(event) =>
+                    this.handleDeleteExperience(
+                      [dataForm.id, this.props.component],
+                      event
+                    )
+                  }
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </div>
         );
         break;
       case "practical":
         result = (
-          <div>
-            <h4>Company Name</h4>
-            <p>{dataForm.company}</p>
-            <h4>Position</h4>
-            <p>{dataForm.position}</p>
-            <h4>Main Tasks</h4>
-            <p>{dataForm.tasks}</p>
-            <h4>Date Started</h4>
-            <p>{dataForm.dateStart}</p>
-            <h4>Date Finished</h4>
-            <p>{dataForm.dateFinish}</p>
-            <button
-              onClick={(event) =>
-                this.handleEditForm([dataForm.id, this.props.component], event)
-              }
-            >
-              Edit
-            </button>
-            <button
-              onClick={(event) =>
-                this.handleDeleteExperience(
-                  [dataForm.id, this.props.component],
-                  event
-                )
-              }
-            >
-              Delete
-            </button>
+          <div className="ExperienceInfo">
+            <div>
+              <p>{dataForm.dateStart}</p>
+              <p>{dataForm.dateFinish}</p>
+            </div>
+            <div className="ExperienceInfo-Right">
+              <p className="Experience-bold">{dataForm.position}</p>
+              <p className="Experience-italic">{dataForm.company}</p>
+              <p>{dataForm.tasks}</p>
+              <div className="EditUpdateButtons">
+                <button
+                  onClick={(event) =>
+                    this.handleEditForm(
+                      [dataForm.id, this.props.component],
+                      event
+                    )
+                  }
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={(event) =>
+                    this.handleDeleteExperience(
+                      [dataForm.id, this.props.component],
+                      event
+                    )
+                  }
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           </div>
         );
         break;

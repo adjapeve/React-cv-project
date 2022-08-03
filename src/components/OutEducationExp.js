@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import OrganizeData from "./OrganizeData";
-import "../style/OutEducationExp.css";
+import "../style/OutExperience.css";
 
 class OutEducationExp extends Component {
   render() {
@@ -20,7 +20,7 @@ class OutEducationExp extends Component {
     });
 
     return (
-      <div className="EducationExp-Container">
+      <div className="Experience-Container">
         <h2>Education</h2>
         {experienceElements}
       </div>

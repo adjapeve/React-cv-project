@@ -1,9 +1,0 @@
-CvContainer
-    CvInput
-        InGeneralInfo
-        InEducationExp
-        InPracticalExp
-    CvOutput
-        OutGeneralInfo
-        OutEducationExp
-        OutPracticalExp
